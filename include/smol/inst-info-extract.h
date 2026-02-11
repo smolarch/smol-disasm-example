@@ -9,5 +9,9 @@
 #define SMOL_INST_INFO_NAME_PTR(info) (SMOL_INST_INFO_OPCODE_PTR(info) + SMOL_INST_INFO_OPCODE_LEN(info))
 #define SMOL_INST_INFO_NAME(info) ((const char *) SMOL_INST_INFO_NAME_PTR(info))
 #define SMOL_INST_INFO_OPERANDS_PTR(info) (SMOL_INST_INFO_NAME_PTR(info) + SMOL_INST_INFO_NAME_LEN(info))
+#define SMOL_INST_INFO_OPERAND_TYPE(operand) ((operand)[0])
+#define SMOL_INST_INFO_OPERAND_FIELD(operand) ((operand)[1])
+#define SMOL_INST_INFO_OPERAND_NEXT(operands) ((operands) + 2)
 #define SMOL_INST_INFO_LEN(info) \
   ((int) (SMOL_INST_INFO_OPERANDS_PTR(info) + SMOL_INST_INFO_OPERANDS_COUNT(info) * 2 - info))
+#define SMOL_INST_INFO_NEXT(info) ((info) + SMOL_INST_INFO_LEN(info))

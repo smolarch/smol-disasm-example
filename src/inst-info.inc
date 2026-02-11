@@ -33,7 +33,7 @@ SMOL_CLASS(NONE),
 2, // opcode len
 7, // name len
 0, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x21, 0x04, // opcode bytes
 'e', 'b', 'r', 'e', 'a', 'k', '\0',
 
@@ -42,7 +42,7 @@ SMOL_CLASS(NONE),
 2, // opcode len
 6, // name len
 0, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x41, 0x18, // opcode bytes
 'e', 'c', 'a', 'l', 'l', '\0',
 
@@ -51,7 +51,7 @@ SMOL_CLASS(NONE),
 2, // opcode len
 6, // name len
 1, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0x18, // opcode bytes
 'f', 'r', 'a', 'm', 'e', '\0',
 SMOL_OPERAND(IMM), SMOL_FIELD(RS),
@@ -61,7 +61,7 @@ SMOL_CLASS(NONE),
 2, // opcode len
 6, // name len
 0, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0x00, // opcode bytes
 'i', 'l', 'l', 'o', 'p', '\0',
 
@@ -70,18 +70,18 @@ SMOL_CLASS(NONE),
 2, // opcode len
 3, // name len
 2, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0x04, // opcode bytes
 'm', 'v', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // nop
 SMOL_CLASS(NONE),
 2, // opcode len
 4, // name len
 0, // operands count
-SMOL_INST_FLAG(ALIAS), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(ALIAS), // flags
 0x00, 0x04, // opcode bytes
 'n', 'o', 'p', '\0',
 
@@ -90,7 +90,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 16, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x01, 0xfc, 0x00, 0x00, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'b', 'e', 'q', '_', 's', '1', '\0',
 
@@ -99,7 +99,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 16, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x00, 0xfc, 0x01, 0x00, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'b', 'e', 'q', '_', 't', '1', '\0',
 
@@ -108,7 +108,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 16, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x01, 0xfc, 0x00, 0x0c, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'b', 'l', 'e', '_', 's', '1', '\0',
 
@@ -117,7 +117,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 16, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x00, 0xfc, 0x01, 0x0c, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'b', 'l', 'e', '_', 't', '1', '\0',
 
@@ -126,7 +126,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 17, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x01, 0xfc, 0x00, 0x14, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'b', 'l', 'e', 'u', '_', 's', '1', '\0',
 
@@ -135,7 +135,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 17, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x00, 0xfc, 0x01, 0x14, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'b', 'l', 'e', 'u', '_', 't', '1', '\0',
 
@@ -144,7 +144,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 16, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x01, 0xfc, 0x00, 0x08, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'b', 'l', 't', '_', 's', '1', '\0',
 
@@ -153,7 +153,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 16, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x00, 0xfc, 0x01, 0x08, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'b', 'l', 't', '_', 't', '1', '\0',
 
@@ -162,7 +162,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 17, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x01, 0xfc, 0x00, 0x10, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'b', 'l', 't', 'u', '_', 's', '1', '\0',
 
@@ -171,7 +171,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 17, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x00, 0xfc, 0x01, 0x10, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'b', 'l', 't', 'u', '_', 't', '1', '\0',
 
@@ -180,7 +180,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 16, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x01, 0xfc, 0x00, 0x04, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'b', 'n', 'e', '_', 's', '1', '\0',
 
@@ -189,7 +189,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 16, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x00, 0xfc, 0x01, 0x04, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'b', 'n', 'e', '_', 't', '1', '\0',
 
@@ -198,7 +198,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 15, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x20, 0xf8, 0x00, 0x00, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'l', 'b', '_', 'd', '1', '\0',
 
@@ -207,7 +207,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 16, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x20, 0xf8, 0x00, 0x10, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'l', 'b', 'u', '_', 'd', '1', '\0',
 
@@ -216,7 +216,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 15, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x20, 0xf8, 0x00, 0x0c, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'l', 'd', '_', 'd', '1', '\0',
 
@@ -225,7 +225,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 15, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x20, 0xf8, 0x00, 0x04, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'l', 'h', '_', 'd', '1', '\0',
 
@@ -234,7 +234,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 16, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x20, 0xf8, 0x00, 0x14, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'l', 'h', 'u', '_', 'd', '1', '\0',
 
@@ -243,7 +243,7 @@ SMOL_CLASS(NONE),
 2, // opcode len
 15, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x00, 0x1c, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'l', 'i', '_', 'd', '0', '\0',
 
@@ -252,7 +252,7 @@ SMOL_CLASS(NONE),
 2, // opcode len
 15, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x20, 0x1c, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'l', 'i', '_', 'd', '1', '\0',
 
@@ -261,7 +261,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 15, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x20, 0xf8, 0x00, 0x08, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'l', 'w', '_', 'd', '1', '\0',
 
@@ -270,7 +270,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 16, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x20, 0xf8, 0x00, 0x18, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 'l', 'w', 'u', '_', 'd', '1', '\0',
 
@@ -279,7 +279,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 12, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x00, 0xfc, 0x01, 0x40, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 's', 'b', '\0',
 
@@ -288,7 +288,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 12, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x00, 0xfc, 0x01, 0x4c, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 's', 'd', '\0',
 
@@ -297,7 +297,7 @@ SMOL_CLASS(NONE),
 2, // opcode len
 17, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x01, 0x8c, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 's', 'e', 'q', 'd', '_', 's', '1', '\0',
 
@@ -306,7 +306,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 12, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x00, 0xfc, 0x01, 0x44, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 's', 'h', '\0',
 
@@ -315,7 +315,7 @@ SMOL_CLASS(NONE),
 4, // opcode len
 12, // name len
 0, // operands count
-SMOL_INST_FLAG(RESERVED), // flags
+SMOL_INST_FLAG(HEAD) | SMOL_INST_FLAG(RESERVED), // flags
 0x00, 0xfc, 0x01, 0x48, // opcode bytes
 'r', 'e', 's', 'e', 'r', 'v', 'e', 'd', '_', 's', 'w', '\0',
 
@@ -324,7 +324,7 @@ SMOL_CLASS(NONE),
 2, // opcode len
 6, // name len
 1, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x20, 0x18, // opcode bytes
 'r', 'e', 's', 'e', 't', '\0',
 SMOL_OPERAND(IMM), SMOL_FIELD(RS),
@@ -355,7 +355,7 @@ SMOL_CLASS(COND),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0x30, // opcode bytes
 'b', 'r', 'e', 'a', 'k', 'z', '.', 'e', 'q', 'z', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // breakz.nez
 SMOL_CLASS(COND),
@@ -365,7 +365,7 @@ SMOL_CLASS(COND),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0x34, // opcode bytes
 'b', 'r', 'e', 'a', 'k', 'z', '.', 'n', 'e', 'z', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // reserved_skip.nez_s0
 SMOL_CLASS(COND),
@@ -384,7 +384,7 @@ SMOL_CLASS(COND),
 SMOL_INST_FLAG(ALIAS), // flags
 0x00, 0xb0, // opcode bytes
 's', 'k', 'i', 'p', '\0',
-SMOL_OPERAND(IMM), SMOL_FIELD(SKIP),
+SMOL_OPERAND(SKIP_TARGET), SMOL_FIELD(SKIP),
 
 // skip.eqz
 SMOL_CLASS(COND),
@@ -394,8 +394,8 @@ SMOL_CLASS(COND),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0xb0, // opcode bytes
 's', 'k', 'i', 'p', '.', 'e', 'q', 'z', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(IMM), SMOL_FIELD(SKIP),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(SKIP_TARGET), SMOL_FIELD(SKIP),
 
 // skip.nez
 SMOL_CLASS(COND),
@@ -405,8 +405,8 @@ SMOL_CLASS(COND),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0xb4, // opcode bytes
 's', 'k', 'i', 'p', '.', 'n', 'e', 'z', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(IMM), SMOL_FIELD(SKIP),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(SKIP_TARGET), SMOL_FIELD(SKIP),
 
 // add
 SMOL_CLASS(INT),
@@ -416,7 +416,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x20, 0x20, // opcode bytes
 'a', 'd', 'd', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 SMOL_OPERAND(IMM), SMOL_FIELD(SHAMT3),
 
 // addi
@@ -437,7 +437,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x00, 0x24, // opcode bytes
 'a', 'n', 'd', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // andi
 SMOL_CLASS(INT),
@@ -457,7 +457,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x00, 0x21, // opcode bytes
 'a', 'n', 'd', 'n', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // andni
 SMOL_CLASS(INT),
@@ -474,31 +474,31 @@ SMOL_CLASS(INT),
 2, // opcode len
 2, // name len
 1, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0x10, // opcode bytes
 'b', '\0',
-SMOL_OPERAND(IMM), SMOL_FIELD(IMM10),
+SMOL_OPERAND(BRANCH_TARGET), SMOL_FIELD(IMM10),
 
 // bal
 SMOL_CLASS(INT),
 2, // opcode len
 4, // name len
 1, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0x14, // opcode bytes
 'b', 'a', 'l', '\0',
-SMOL_OPERAND(IMM), SMOL_FIELD(IMM10),
+SMOL_OPERAND(BRANCH_TARGET), SMOL_FIELD(IMM10),
 
 // beq
 SMOL_CLASS(INT),
 4, // opcode len
 4, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xfc, 0x00, 0x00, // opcode bytes
 'b', 'e', 'q', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10S),
 
 // ble
@@ -506,11 +506,11 @@ SMOL_CLASS(INT),
 4, // opcode len
 4, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xfc, 0x00, 0x0c, // opcode bytes
 'b', 'l', 'e', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10S),
 
 // bleu
@@ -518,11 +518,11 @@ SMOL_CLASS(INT),
 4, // opcode len
 5, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xfc, 0x00, 0x14, // opcode bytes
 'b', 'l', 'e', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10S),
 
 // blt
@@ -530,11 +530,11 @@ SMOL_CLASS(INT),
 4, // opcode len
 4, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xfc, 0x00, 0x08, // opcode bytes
 'b', 'l', 't', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10S),
 
 // bltu
@@ -542,11 +542,11 @@ SMOL_CLASS(INT),
 4, // opcode len
 5, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xfc, 0x00, 0x10, // opcode bytes
 'b', 'l', 't', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10S),
 
 // bne
@@ -554,11 +554,11 @@ SMOL_CLASS(INT),
 4, // opcode len
 4, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xfc, 0x00, 0x04, // opcode bytes
 'b', 'n', 'e', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10S),
 
 // break.eq
@@ -569,8 +569,8 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x20, 0xfc, 0x00, 0x00, // opcode bytes
 'b', 'r', 'e', 'a', 'k', '.', 'e', 'q', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 
 // break.le
 SMOL_CLASS(INT),
@@ -580,8 +580,8 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x20, 0xfc, 0x60, 0x00, // opcode bytes
 'b', 'r', 'e', 'a', 'k', '.', 'l', 'e', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 
 // break.leu
 SMOL_CLASS(INT),
@@ -591,8 +591,8 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x20, 0xfc, 0xa0, 0x00, // opcode bytes
 'b', 'r', 'e', 'a', 'k', '.', 'l', 'e', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 
 // break.lt
 SMOL_CLASS(INT),
@@ -602,8 +602,8 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x20, 0xfc, 0x40, 0x00, // opcode bytes
 'b', 'r', 'e', 'a', 'k', '.', 'l', 't', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 
 // break.ltu
 SMOL_CLASS(INT),
@@ -613,8 +613,8 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x20, 0xfc, 0x80, 0x00, // opcode bytes
 'b', 'r', 'e', 'a', 'k', '.', 'l', 't', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 
 // break.ne
 SMOL_CLASS(INT),
@@ -624,8 +624,8 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x20, 0xfc, 0x20, 0x00, // opcode bytes
 'b', 'r', 'e', 'a', 'k', '.', 'n', 'e', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 
 // breakz.eq
 SMOL_CLASS(INT),
@@ -635,8 +635,8 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0xfc, 0x00, 0x00, // opcode bytes
 'b', 'r', 'e', 'a', 'k', 'z', '.', 'e', 'q', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 
 // breakz.le
 SMOL_CLASS(INT),
@@ -646,8 +646,8 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0xfc, 0x60, 0x00, // opcode bytes
 'b', 'r', 'e', 'a', 'k', 'z', '.', 'l', 'e', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 
 // breakz.leu
 SMOL_CLASS(INT),
@@ -657,8 +657,8 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0xfc, 0xa0, 0x00, // opcode bytes
 'b', 'r', 'e', 'a', 'k', 'z', '.', 'l', 'e', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 
 // breakz.lt
 SMOL_CLASS(INT),
@@ -668,8 +668,8 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0xfc, 0x40, 0x00, // opcode bytes
 'b', 'r', 'e', 'a', 'k', 'z', '.', 'l', 't', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 
 // breakz.ltu
 SMOL_CLASS(INT),
@@ -679,8 +679,8 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0xfc, 0x80, 0x00, // opcode bytes
 'b', 'r', 'e', 'a', 'k', 'z', '.', 'l', 't', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 
 // breakz.ne
 SMOL_CLASS(INT),
@@ -690,49 +690,49 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0xfc, 0x20, 0x00, // opcode bytes
 'b', 'r', 'e', 'a', 'k', 'z', '.', 'n', 'e', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 
 // cpuid
 SMOL_CLASS(INT),
 2, // opcode len
 6, // name len
 1, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x01, 0x88, // opcode bytes
 'c', 'p', 'u', 'i', 'd', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
 
 // j
 SMOL_CLASS(INT),
 2, // opcode len
 2, // name len
 1, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x40, 0x18, // opcode bytes
 'j', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // jal
 SMOL_CLASS(INT),
 2, // opcode len
 4, // name len
 1, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x60, 0x18, // opcode bytes
 'j', 'a', 'l', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // lb
 SMOL_CLASS(INT),
 4, // opcode len
 3, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xf8, 0x00, 0x00, // opcode bytes
 'l', 'b', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10L),
 
 // lbu
@@ -740,11 +740,11 @@ SMOL_CLASS(INT),
 4, // opcode len
 4, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xf8, 0x00, 0x10, // opcode bytes
 'l', 'b', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10L),
 
 // ld
@@ -752,11 +752,11 @@ SMOL_CLASS(INT),
 4, // opcode len
 3, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xf8, 0x00, 0x0c, // opcode bytes
 'l', 'd', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10L),
 
 // lh
@@ -764,11 +764,11 @@ SMOL_CLASS(INT),
 4, // opcode len
 3, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xf8, 0x00, 0x04, // opcode bytes
 'l', 'h', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10L),
 
 // lhu
@@ -776,11 +776,11 @@ SMOL_CLASS(INT),
 4, // opcode len
 4, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xf8, 0x00, 0x14, // opcode bytes
 'l', 'h', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10L),
 
 // log
@@ -791,7 +791,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0x20, // opcode bytes
 'l', 'o', 'g', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 SMOL_OPERAND(IMM), SMOL_FIELD(TABLE),
 
 // logi
@@ -810,11 +810,11 @@ SMOL_CLASS(INT),
 4, // opcode len
 3, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xf8, 0x00, 0x08, // opcode bytes
 'l', 'w', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10L),
 
 // lwu
@@ -822,11 +822,11 @@ SMOL_CLASS(INT),
 4, // opcode len
 4, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xf8, 0x00, 0x18, // opcode bytes
 'l', 'w', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10L),
 
 // nand
@@ -837,7 +837,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x80, 0x23, // opcode bytes
 'n', 'a', 'n', 'd', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // nandi
 SMOL_CLASS(INT),
@@ -857,7 +857,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x80, 0x26, // opcode bytes
 'n', 'a', 'n', 'd', 'n', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // nandni
 SMOL_CLASS(INT),
@@ -877,7 +877,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x80, 0x20, // opcode bytes
 'n', 'o', 'r', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // nori
 SMOL_CLASS(INT),
@@ -897,7 +897,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x00, 0x22, // opcode bytes
 'n', 'o', 'r', 'n', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // norni
 SMOL_CLASS(INT),
@@ -917,7 +917,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x80, 0x22, // opcode bytes
 'n', 'o', 't', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // noti
 SMOL_CLASS(INT),
@@ -937,7 +937,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x80, 0x24, // opcode bytes
 'n', 'x', 'o', 'r', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // nxori
 SMOL_CLASS(INT),
@@ -957,7 +957,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x80, 0x27, // opcode bytes
 'o', 'n', 'e', 's', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // onesi
 SMOL_CLASS(INT),
@@ -977,7 +977,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x00, 0x27, // opcode bytes
 'o', 'r', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // ori
 SMOL_CLASS(INT),
@@ -997,7 +997,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x80, 0x25, // opcode bytes
 'o', 'r', 'n', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // orni
 SMOL_CLASS(INT),
@@ -1017,7 +1017,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x00, 0x25, // opcode bytes
 'p', 'r', 'o', 'p', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // propi
 SMOL_CLASS(INT),
@@ -1034,7 +1034,7 @@ SMOL_CLASS(INT),
 2, // opcode len
 4, // name len
 0, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x61, 0x18, // opcode bytes
 'r', 'e', 't', '\0',
 
@@ -1046,7 +1046,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x20, 0x28, // opcode bytes
 'r', 's', 'l', 'l', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // rsra
 SMOL_CLASS(INT),
@@ -1056,7 +1056,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0xa0, 0x28, // opcode bytes
 'r', 's', 'r', 'a', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // rsrl
 SMOL_CLASS(INT),
@@ -1066,7 +1066,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x60, 0x28, // opcode bytes
 'r', 's', 'r', 'l', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // rsub
 SMOL_CLASS(INT),
@@ -1076,7 +1076,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x60, 0x20, // opcode bytes
 'r', 's', 'u', 'b', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 SMOL_OPERAND(IMM), SMOL_FIELD(SHAMT3),
 
 // sab
@@ -1084,51 +1084,51 @@ SMOL_CLASS(INT),
 2, // opcode len
 4, // name len
 1, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x20, 0x80, // opcode bytes
 's', 'a', 'b', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RS),
 
 // sad
 SMOL_CLASS(INT),
 2, // opcode len
 4, // name len
 1, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x20, 0x8c, // opcode bytes
 's', 'a', 'd', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RS),
 
 // sah
 SMOL_CLASS(INT),
 2, // opcode len
 4, // name len
 1, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x20, 0x84, // opcode bytes
 's', 'a', 'h', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RS),
 
 // saw
 SMOL_CLASS(INT),
 2, // opcode len
 4, // name len
 1, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x20, 0x88, // opcode bytes
 's', 'a', 'w', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RS),
 
 // sb
 SMOL_CLASS(INT),
 4, // opcode len
 3, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xfc, 0x00, 0x40, // opcode bytes
 's', 'b', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10S),
 
 // sd
@@ -1136,11 +1136,11 @@ SMOL_CLASS(INT),
 4, // opcode len
 3, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xfc, 0x00, 0x4c, // opcode bytes
 's', 'd', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10S),
 
 // seqb
@@ -1148,44 +1148,44 @@ SMOL_CLASS(INT),
 2, // opcode len
 5, // name len
 2, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0x80, // opcode bytes
 's', 'e', 'q', 'b', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // seqd
 SMOL_CLASS(INT),
 2, // opcode len
 5, // name len
 2, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0x8c, // opcode bytes
 's', 'e', 'q', 'd', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // seqh
 SMOL_CLASS(INT),
 2, // opcode len
 5, // name len
 2, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0x84, // opcode bytes
 's', 'e', 'q', 'h', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // seqw
 SMOL_CLASS(INT),
 2, // opcode len
 5, // name len
 2, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0x88, // opcode bytes
 's', 'e', 'q', 'w', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // set
 SMOL_CLASS(INT),
@@ -1195,7 +1195,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x00, 0x26, // opcode bytes
 's', 'e', 't', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // seti
 SMOL_CLASS(INT),
@@ -1215,7 +1215,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x80, 0x21, // opcode bytes
 's', 'e', 't', 'n', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // setni
 SMOL_CLASS(INT),
@@ -1235,7 +1235,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x40, 0x29, // opcode bytes
 's', 'g', 't', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // sgti
 SMOL_CLASS(INT),
@@ -1245,7 +1245,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0x1d, // opcode bytes
 's', 'g', 't', 'i', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(IMM7),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(IMM7),
 
 // sgtu
 SMOL_CLASS(INT),
@@ -1255,7 +1255,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x60, 0x29, // opcode bytes
 's', 'g', 't', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // sgtui
 SMOL_CLASS(INT),
@@ -1265,18 +1265,18 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x80, 0x1d, // opcode bytes
 's', 'g', 't', 'u', 'i', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(IMM7),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(IMM7),
 
 // sh
 SMOL_CLASS(INT),
 4, // opcode len
 3, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xfc, 0x00, 0x44, // opcode bytes
 's', 'h', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10S),
 
 // skip.eq
@@ -1287,9 +1287,9 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0xfc, 0x00, 0x80, // opcode bytes
 's', 'k', 'i', 'p', '.', 'e', 'q', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
-SMOL_OPERAND(IMM), SMOL_FIELD(SKIP),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
+SMOL_OPERAND(SKIP_TARGET), SMOL_FIELD(SKIP),
 
 // skip.le
 SMOL_CLASS(INT),
@@ -1299,9 +1299,9 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0xfc, 0x60, 0x80, // opcode bytes
 's', 'k', 'i', 'p', '.', 'l', 'e', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
-SMOL_OPERAND(IMM), SMOL_FIELD(SKIP),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
+SMOL_OPERAND(SKIP_TARGET), SMOL_FIELD(SKIP),
 
 // skip.leu
 SMOL_CLASS(INT),
@@ -1311,9 +1311,9 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0xfc, 0xa0, 0x80, // opcode bytes
 's', 'k', 'i', 'p', '.', 'l', 'e', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
-SMOL_OPERAND(IMM), SMOL_FIELD(SKIP),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
+SMOL_OPERAND(SKIP_TARGET), SMOL_FIELD(SKIP),
 
 // skip.lt
 SMOL_CLASS(INT),
@@ -1323,9 +1323,9 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0xfc, 0x40, 0x80, // opcode bytes
 's', 'k', 'i', 'p', '.', 'l', 't', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
-SMOL_OPERAND(IMM), SMOL_FIELD(SKIP),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
+SMOL_OPERAND(SKIP_TARGET), SMOL_FIELD(SKIP),
 
 // skip.ltu
 SMOL_CLASS(INT),
@@ -1335,9 +1335,9 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0xfc, 0x80, 0x80, // opcode bytes
 's', 'k', 'i', 'p', '.', 'l', 't', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
-SMOL_OPERAND(IMM), SMOL_FIELD(SKIP),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
+SMOL_OPERAND(SKIP_TARGET), SMOL_FIELD(SKIP),
 
 // skip.ne
 SMOL_CLASS(INT),
@@ -1347,9 +1347,9 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0xfc, 0x20, 0x80, // opcode bytes
 's', 'k', 'i', 'p', '.', 'n', 'e', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
-SMOL_OPERAND(IMM), SMOL_FIELD(SKIP),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
+SMOL_OPERAND(SKIP_TARGET), SMOL_FIELD(SKIP),
 
 // sll
 SMOL_CLASS(INT),
@@ -1359,7 +1359,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0x28, // opcode bytes
 's', 'l', 'l', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // slli
 SMOL_CLASS(INT),
@@ -1379,7 +1379,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0x29, // opcode bytes
 's', 'l', 't', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // slti
 SMOL_CLASS(INT),
@@ -1389,7 +1389,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0x1c, // opcode bytes
 's', 'l', 't', 'i', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(IMM7),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(IMM7),
 
 // sltu
 SMOL_CLASS(INT),
@@ -1399,7 +1399,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x20, 0x29, // opcode bytes
 's', 'l', 't', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // sltui
 SMOL_CLASS(INT),
@@ -1409,7 +1409,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x80, 0x1c, // opcode bytes
 's', 'l', 't', 'u', 'i', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(IMM7),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(IMM7),
 
 // sori
 SMOL_CLASS(INT),
@@ -1429,7 +1429,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x80, 0x28, // opcode bytes
 's', 'r', 'a', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // srai
 SMOL_CLASS(INT),
@@ -1449,7 +1449,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x40, 0x28, // opcode bytes
 's', 'r', 'l', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // srli
 SMOL_CLASS(INT),
@@ -1469,7 +1469,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(NONE), // flags
 0x40, 0x20, // opcode bytes
 's', 'u', 'b', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 SMOL_OPERAND(IMM), SMOL_FIELD(SHAMT3),
 
 // subi16spfp
@@ -1477,21 +1477,21 @@ SMOL_CLASS(INT),
 2, // opcode len
 11, // name len
 1, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0x08, // opcode bytes
 's', 'u', 'b', 'i', '1', '6', 's', 'p', 'f', 'p', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(UIMM10),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(UIMM10),
 
 // sw
 SMOL_CLASS(INT),
 4, // opcode len
 3, // name len
 3, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0xfc, 0x00, 0x48, // opcode bytes
 's', 'w', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
-SMOL_OPERAND(REG_X), SMOL_FIELD(RT),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RT),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM10S),
 
 // sxtb
@@ -1583,7 +1583,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x00, 0x23, // opcode bytes
 'x', 'o', 'r', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // xori
 SMOL_CLASS(INT),
@@ -1603,7 +1603,7 @@ SMOL_CLASS(INT),
 SMOL_INST_FLAG(ALIAS), // flags
 0x00, 0x20, // opcode bytes
 'z', 'e', 'r', 'o', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // zeroi
 SMOL_CLASS(INT),
@@ -1701,10 +1701,10 @@ SMOL_CLASS(LOAD),
 2, // opcode len
 3, // name len
 1, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x01, 0x80, // opcode bytes
 'l', 'a', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
 
 // lab
 SMOL_CLASS(LOAD),
@@ -1714,7 +1714,7 @@ SMOL_CLASS(LOAD),
 SMOL_INST_FLAG(NONE), // flags
 0x00, 0x3c, // opcode bytes
 'l', 'a', 'b', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // labu
 SMOL_CLASS(LOAD),
@@ -1724,7 +1724,7 @@ SMOL_CLASS(LOAD),
 SMOL_INST_FLAG(NONE), // flags
 0x80, 0x3c, // opcode bytes
 'l', 'a', 'b', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // lad
 SMOL_CLASS(LOAD),
@@ -1734,7 +1734,7 @@ SMOL_CLASS(LOAD),
 SMOL_INST_FLAG(NONE), // flags
 0x60, 0x3c, // opcode bytes
 'l', 'a', 'd', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // lah
 SMOL_CLASS(LOAD),
@@ -1744,7 +1744,7 @@ SMOL_CLASS(LOAD),
 SMOL_INST_FLAG(NONE), // flags
 0x20, 0x3c, // opcode bytes
 'l', 'a', 'h', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // lahu
 SMOL_CLASS(LOAD),
@@ -1754,7 +1754,7 @@ SMOL_CLASS(LOAD),
 SMOL_INST_FLAG(NONE), // flags
 0xa0, 0x3c, // opcode bytes
 'l', 'a', 'h', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // law
 SMOL_CLASS(LOAD),
@@ -1764,7 +1764,7 @@ SMOL_CLASS(LOAD),
 SMOL_INST_FLAG(NONE), // flags
 0x40, 0x3c, // opcode bytes
 'l', 'a', 'w', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // lawu
 SMOL_CLASS(LOAD),
@@ -1774,27 +1774,27 @@ SMOL_CLASS(LOAD),
 SMOL_INST_FLAG(NONE), // flags
 0xc0, 0x3c, // opcode bytes
 'l', 'a', 'w', 'u', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RS),
+SMOL_OPERAND(REG_X_SRC), SMOL_FIELD(RS),
 
 // lsa
 SMOL_CLASS(LOAD),
 2, // opcode len
 4, // name len
 1, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x01, 0x84, // opcode bytes
 'l', 's', 'a', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
 
 // li
 SMOL_CLASS(LI),
 2, // opcode len
 3, // name len
 2, // operands count
-SMOL_INST_FLAG(NONE), // flags
+SMOL_INST_FLAG(HEAD), // flags
 0x00, 0x1c, // opcode bytes
 'l', 'i', '\0',
-SMOL_OPERAND(REG_X), SMOL_FIELD(RD),
+SMOL_OPERAND(REG_X_DST), SMOL_FIELD(RD),
 SMOL_OPERAND(IMM), SMOL_FIELD(IMM5),
 
 // sori15

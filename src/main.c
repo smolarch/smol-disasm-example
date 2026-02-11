@@ -45,7 +45,7 @@ static void parse_opt_extension(smol_disasm_t *disasm, const char *optarg) {
     int i, major, minor, ext;
     const uint16_t *info;
 
-    major = 1;
+    major = 0;
     minor = 0;
 
     i = take_until(buf, sizeof(buf), optarg, '-');
@@ -253,9 +253,12 @@ static void print_operand(
     int32_t value = smol_extract_field(disasm->inst, field);
 
     switch (operand) {
-    case SMOL_OPERAND_REG_X:
+    case SMOL_OPERAND_REG_X_DST:
+    case SMOL_OPERAND_REG_X_SRC:
         print_reg_x(disasm, index, field, value);
         break;
+    case SMOL_OPERAND_BRANCH_TARGET:
+    case SMOL_OPERAND_SKIP_TARGET:
     case SMOL_OPERAND_IMM:
         print_imm(disasm, index, field, value);
         break;
@@ -291,10 +294,12 @@ static void print_inst(smol_disasm_t *disasm, size_t address, enum smol_inst id,
         }
 
         for (int i = 0; i < operands_count; ++i) {
-            enum smol_operand operand = *p++;
-            enum smol_field field = *p++;
+            enum smol_operand operand = SMOL_INST_INFO_OPERAND_TYPE(p);
+            enum smol_field field = SMOL_INST_INFO_OPERAND_FIELD(p);
 
             print_operand(disasm, i, operand, field);
+
+            p = SMOL_INST_INFO_OPERAND_NEXT(p);
         }
     }
 

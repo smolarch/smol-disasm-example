@@ -56,7 +56,6 @@ enum smol_inst_type {
     SMOL_INST_TAIL,
 };
 
-
 static inline enum smol_inst_type smol_inst_type(enum smol_inst_class bundle_class, bool stop) {
     if (bundle_class == CLASS_NONE) {
         return stop ? SMOL_INST_SHORT : SMOL_INST_HEAD;
@@ -82,6 +81,7 @@ enum smol_inst_flags {
     SMOL_INST_FLAG_NONE = 0,
     SMOL_INST_FLAG_ALIAS = 1 << 0,
     SMOL_INST_FLAG_RESERVED = 1 << 1,
+    SMOL_INST_FLAG_HEAD = 1 << 2,
 };
 
 typedef unsigned long smol_valid_t;
@@ -117,7 +117,7 @@ void smol_add_ext(smol_disasm_t *disasm, enum smol_ext ext, int major, int minor
 bool smol_has_ext(smol_disasm_t *disasm, enum smol_ext ext, int major, int minor);
 
 #define SMOL_EXTRACT_S(inst, offset, len) \
-    (((int64_t) (inst) << (64 - (offset) - (len))) >> (64 - (len)))
+    ((int64_t) ((uint64_t) (inst) << (64 - (offset) - (len))) >> (64 - (len)))
 
 #define SMOL_EXTRACT_Z(inst, offset, len) \
     (((uint64_t) (inst) << (64 - (offset) - (len))) >> (64 - (len)))
