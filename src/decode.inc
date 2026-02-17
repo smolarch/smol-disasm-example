@@ -508,16 +508,13 @@ SMOL_DEFINE_DECODE(body_cond) {
                 // opcode -0110000000.....
                 SMOL_DECODE_HIT(BREAKZ_EQZ);
             }
-            // opcode 1----------00000
-            if ((SMOL_DECODE_INST() & 0x801f) == 0x8000) {
-                // opcode 101100.....00000
+            // opcode -----------00000
+            if ((SMOL_DECODE_INST() & 0x1f) == 0x0) {
+                // opcode -01100.....00000
                 SMOL_DECODE_HIT(SKIP);
             }
-            // opcode 1---------------
-            if (((SMOL_DECODE_INST() >> 15) & 0x1) == 0x1) {
-                // opcode 101100..........
-                SMOL_DECODE_HIT(SKIP_EQZ);
-            }
+            // opcode -01100..........
+            SMOL_DECODE_HIT(SKIP_EQZ);
             break;
         }
         // opcode -01101----------
@@ -532,16 +529,13 @@ SMOL_DEFINE_DECODE(body_cond) {
                 // opcode -0110100000.....
                 SMOL_DECODE_HIT(BREAKZ_NEZ);
             }
-            // opcode 1----------00000
-            if ((SMOL_DECODE_INST() & 0x801f) == 0x8000) {
-                // opcode 101101-----00000
+            // opcode -----------00000
+            if ((SMOL_DECODE_INST() & 0x1f) == 0x0) {
+                // opcode -01101-----00000
                 SMOL_DECODE_HIT(RESERVED_SKIP_NEZ_S0);
             }
-            // opcode 1---------------
-            if (((SMOL_DECODE_INST() >> 15) & 0x1) == 0x1) {
-                // opcode 101101..........
-                SMOL_DECODE_HIT(SKIP_NEZ);
-            }
+            // opcode -01101..........
+            SMOL_DECODE_HIT(SKIP_NEZ);
             break;
         }
     }
@@ -1085,11 +1079,8 @@ SMOL_DEFINE_DECODE(body_int) {
                             break;
                         }
                     }
-                    // opcode 1--------------- ----------------
-                    if (((SMOL_DECODE_INST() >> 31) & 0x1) == 0x1) {
-                        // opcode 10000000000..... 111111..........
-                        SMOL_DECODE_HIT(SKIP_EQ);
-                    }
+                    // opcode -0000000000..... 111111..........
+                    SMOL_DECODE_HIT(SKIP_EQ);
                     break;
                 }
                 // opcode -0000000001----- 1----1----------
@@ -1109,11 +1100,8 @@ SMOL_DEFINE_DECODE(body_int) {
                             break;
                         }
                     }
-                    // opcode 1--------------- ----------------
-                    if (((SMOL_DECODE_INST() >> 31) & 0x1) == 0x1) {
-                        // opcode 10000000001..... 111111..........
-                        SMOL_DECODE_HIT(SKIP_NE);
-                    }
+                    // opcode -0000000001..... 111111..........
+                    SMOL_DECODE_HIT(SKIP_NE);
                     break;
                 }
                 // opcode -0000000010----- 1----1----------
@@ -1133,11 +1121,8 @@ SMOL_DEFINE_DECODE(body_int) {
                             break;
                         }
                     }
-                    // opcode 1--------------- ----------------
-                    if (((SMOL_DECODE_INST() >> 31) & 0x1) == 0x1) {
-                        // opcode 10000000010..... 111111..........
-                        SMOL_DECODE_HIT(SKIP_LT);
-                    }
+                    // opcode -0000000010..... 111111..........
+                    SMOL_DECODE_HIT(SKIP_LT);
                     break;
                 }
                 // opcode -0000000011----- 1----1----------
@@ -1157,11 +1142,8 @@ SMOL_DEFINE_DECODE(body_int) {
                             break;
                         }
                     }
-                    // opcode 1--------------- ----------------
-                    if (((SMOL_DECODE_INST() >> 31) & 0x1) == 0x1) {
-                        // opcode 10000000011..... 111111..........
-                        SMOL_DECODE_HIT(SKIP_LE);
-                    }
+                    // opcode -0000000011..... 111111..........
+                    SMOL_DECODE_HIT(SKIP_LE);
                     break;
                 }
                 // opcode -0000000100----- 1----1----------
@@ -1181,11 +1163,8 @@ SMOL_DEFINE_DECODE(body_int) {
                             break;
                         }
                     }
-                    // opcode 1--------------- ----------------
-                    if (((SMOL_DECODE_INST() >> 31) & 0x1) == 0x1) {
-                        // opcode 10000000100..... 111111..........
-                        SMOL_DECODE_HIT(SKIP_LTU);
-                    }
+                    // opcode -0000000100..... 111111..........
+                    SMOL_DECODE_HIT(SKIP_LTU);
                     break;
                 }
                 // opcode -0000000101----- 1----1----------
@@ -1205,11 +1184,8 @@ SMOL_DEFINE_DECODE(body_int) {
                             break;
                         }
                     }
-                    // opcode 1--------------- ----------------
-                    if (((SMOL_DECODE_INST() >> 31) & 0x1) == 0x1) {
-                        // opcode 10000000101..... 111111..........
-                        SMOL_DECODE_HIT(SKIP_LEU);
-                    }
+                    // opcode -0000000101..... 111111..........
+                    SMOL_DECODE_HIT(SKIP_LEU);
                     break;
                 }
             }

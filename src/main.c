@@ -257,7 +257,6 @@ static void print_operand(
     case SMOL_OPERAND_REG_X_SRC:
         print_reg_x(disasm, index, field, value);
         break;
-    case SMOL_OPERAND_BRANCH_TARGET:
     case SMOL_OPERAND_SKIP_TARGET:
     case SMOL_OPERAND_IMM:
         print_imm(disasm, index, field, value);
